@@ -47,7 +47,7 @@ export default function Footer() {
                 { href: "/about", label: "About" },
                 { href: "/services", label: "Services" },
                 { href: "/testimonials", label: "Testimonials" },
-                { href: "/case-studies", label: "Case Studies" },
+                { href: "/case-studies", label: "Articles" },
               ].map((item) => (
                 <Link
                   key={item.href}
@@ -66,7 +66,7 @@ export default function Footer() {
             <div className="space-y-2 text-gray-400">
               <p>London, United Kingdom</p>
               <p>24/7 Emergency Line</p>
-              <p>Phone Number +44 (0) 7497 580 732 </p>
+              <p>+44 (0) 7497 580 732 </p>
               <p>info.globalshield@gmail.com</p>
             </div>
 
