@@ -17,7 +17,6 @@ import {
   Clock,
   Phone,
   Mail,
-  MapPin,
   AlertTriangle,
   CheckCircle,
   Users,
@@ -257,16 +256,17 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="bookingType">Are you booking on behalf of a client? *</Label>
                           <Select onValueChange={(value) => handleInputChange("bookingType", value)}>
-                            <SelectTrigger className="mt-1">
+                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
                               <SelectValue placeholder="Select booking type" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="self">No, booking for myself</SelectItem>
                               <SelectItem value="client">Yes, booking on behalf of a client</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
                       </div>
+
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="firstName">First Name *</Label>
@@ -289,6 +289,7 @@ export default function RequestPage() {
                           />
                         </div>
                       </div>
+
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="email">Email Address *</Label>
@@ -313,6 +314,7 @@ export default function RequestPage() {
                           />
                         </div>
                       </div>
+
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="company">Company/Organization</Label>
@@ -337,6 +339,7 @@ export default function RequestPage() {
 
                     <div className="space-y-4">
                       <h3 className="text-lg font-semibold border-b pb-2">Service Requirements</h3>
+
                       <div>
                         <Label htmlFor="location">Primary Location *</Label>
                         <Input
@@ -348,14 +351,15 @@ export default function RequestPage() {
                           className="mt-1"
                         />
                       </div>
+
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
                           <Label htmlFor="serviceType">Service Type *</Label>
                           <Select onValueChange={(value) => handleInputChange("serviceType", value)}>
-                            <SelectTrigger className="mt-1">
+                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
                               <SelectValue placeholder="Select service type" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="close-protection">Close Protection</SelectItem>
                               <SelectItem value="residential-security">Residential Security</SelectItem>
                               <SelectItem value="travel-security">Travel Security</SelectItem>
@@ -363,18 +367,19 @@ export default function RequestPage() {
                               <SelectItem value="executive-protection">Executive Protection</SelectItem>
                               <SelectItem value="celebrity-protection">Celebrity Protection</SelectItem>
                               <SelectItem value="secure-transport">Secure Transport</SelectItem>
-                              <SelectItem value="intelligence-surveillance">Intelligence & Surveillance</SelectItem>
+                              <SelectItem value="intelligence-surveillance">Intelligence &amp; Surveillance</SelectItem>
                               <SelectItem value="comprehensive">Comprehensive Package</SelectItem>
                             </SelectContent>
                           </Select>
                         </div>
+
                         <div>
                           <Label htmlFor="urgency">Urgency Level *</Label>
                           <Select onValueChange={(value) => handleInputChange("urgency", value)}>
-                            <SelectTrigger className="mt-1">
+                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
                               <SelectValue placeholder="Select urgency" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="immediate">Immediate (Within 24 hours)</SelectItem>
                               <SelectItem value="urgent">Urgent (Within 1 week)</SelectItem>
                               <SelectItem value="standard">Standard (Within 2 weeks)</SelectItem>
@@ -383,6 +388,7 @@ export default function RequestPage() {
                           </Select>
                         </div>
                       </div>
+
                       <div className="grid md:grid-cols-3 gap-4">
                         <div>
                           <Label htmlFor="startDate">Preferred Start Date</Label>
@@ -394,13 +400,14 @@ export default function RequestPage() {
                             className="mt-1"
                           />
                         </div>
+
                         <div>
                           <Label htmlFor="duration">Duration</Label>
                           <Select onValueChange={(value) => handleInputChange("duration", value)}>
-                            <SelectTrigger className="mt-1">
+                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
                               <SelectValue placeholder="Select duration" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="1-day">1 Day</SelectItem>
                               <SelectItem value="1-week">1 Week</SelectItem>
                               <SelectItem value="1-month">1 Month</SelectItem>
@@ -411,13 +418,14 @@ export default function RequestPage() {
                             </SelectContent>
                           </Select>
                         </div>
+
                         <div>
                           <Label htmlFor="teamSize">Team Size Required</Label>
                           <Select onValueChange={(value) => handleInputChange("teamSize", value)}>
-                            <SelectTrigger className="mt-1">
+                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
                               <SelectValue placeholder="Select team size" />
                             </SelectTrigger>
-                            <SelectContent>
+                            <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="1">1 Operative</SelectItem>
                               <SelectItem value="2">2 Operatives</SelectItem>
                               <SelectItem value="3-5">3-5 Operatives</SelectItem>
@@ -432,7 +440,7 @@ export default function RequestPage() {
                     <div className="space-y-4">
                       <h3 className="text-lg font-semibold border-b pb-2">Additional Information</h3>
                       <div>
-                        <Label htmlFor="details">Specific Requirements & Threat Assessment</Label>
+                        <Label htmlFor="details">Specific Requirements &amp; Threat Assessment</Label>
                         <Textarea
                           id="details"
                           value={formData.details}
@@ -532,37 +540,11 @@ export default function RequestPage() {
                       </div>
                     </div>
                     <div className="flex items-center">
-                      <MapPin className="w-4 h-4 text-gray-500 mr-3" />
+                      <Clock className="w-4 h-4 text-gray-500 mr-3" />
                       <div>
-                        <p className="font-medium">Headquarters</p>
-                        <p className="text-gray-600 text-sm">London, United Kingdom</p>
+                        <p className="font-medium">Typical Response</p>
+                        <p className="text-gray-600 text-sm">2–48 hours depending on urgency</p>
                       </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="shadow-lg border-0">
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Clock className="w-5 h-5 mr-2" />
-                    Response Times
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="space-y-3">
-                    
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm">Urgent Requests</span>
-                      <span className="font-semibold">2-4 hours</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm">Standard Consultation</span>
-                      <span className="font-semibold">24-48 hours</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-sm">Detailed Proposals</span>
-                      <span className="font-semibold">3-5 business days</span>
                     </div>
                   </div>
                 </CardContent>
@@ -695,3 +677,4 @@ export default function RequestPage() {
     </div>
   )
 }
+
