@@ -80,12 +80,15 @@ function MiniRequestForm() {
               <div>
                 <Label className="text-white">Urgency</Label>
                 <Select name="urgency">
-                  {/* Solid white trigger to ensure readability */}
-                  <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
+                  {/* Dark/glass trigger */}
+                  <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
                     <SelectValue placeholder="Select urgency" />
                   </SelectTrigger>
-                  {/* Force white dropdown panel to avoid transparency */}
-                  <SelectContent className="bg-white text-black">
+                  {/* White dropdown when opened */}
+                  <SelectContent
+                    sideOffset={4}
+                    className="bg-white text-black border border-gray-200 shadow-lg"
+                  >
                     <SelectItem value="immediate">Immediate (24h)</SelectItem>
                     <SelectItem value="urgent">Urgent (1 week)</SelectItem>
                     <SelectItem value="standard">Standard (2 weeks)</SelectItem>
@@ -99,10 +102,13 @@ function MiniRequestForm() {
               <div className="sm:col-span-2">
                 <Label className="text-white">Service Type</Label>
                 <Select name="serviceType">
-                  <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
+                  <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
                     <SelectValue placeholder="Select service" />
                   </SelectTrigger>
-                  <SelectContent className="bg-white text-black">
+                  <SelectContent
+                    sideOffset={4}
+                    className="bg-white text-black border border-gray-200 shadow-lg"
+                  >
                     <SelectItem value="close-protection">Close Protection</SelectItem>
                     <SelectItem value="residential-security">Residential Security</SelectItem>
                     <SelectItem value="travel-security">Travel Security</SelectItem>
@@ -110,7 +116,9 @@ function MiniRequestForm() {
                     <SelectItem value="executive-protection">Executive Protection</SelectItem>
                     <SelectItem value="celebrity-protection">Celebrity Protection</SelectItem>
                     <SelectItem value="secure-transport">Secure Transport</SelectItem>
-                    <SelectItem value="intelligence-surveillance">Intelligence &amp; Surveillance</SelectItem>
+                    <SelectItem value="intelligence-surveillance">
+                      Intelligence &amp; Surveillance
+                    </SelectItem>
                     <SelectItem value="comprehensive">Comprehensive Package</SelectItem>
                   </SelectContent>
                 </Select>
