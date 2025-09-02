@@ -100,7 +100,7 @@ export default function RequestPage() {
                       </p>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
+                      <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold">
                         2
                       </div>
                       <p className="text-sm">
@@ -110,7 +110,7 @@ export default function RequestPage() {
                       </p>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
+                      <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold">
                         3
                       </div>
                       <p className="text-sm">
@@ -256,7 +256,14 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="bookingType">Are you booking on behalf of a client? *</Label>
                           <Select onValueChange={(value) => handleInputChange("bookingType", value)}>
-                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
+                            <SelectTrigger
+                              className="
+                                mt-1 bg-white text-black border border-gray-300
+                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
+                                [&>svg]:text-black [&>svg]:opacity-100
+                                [&_.text-muted-foreground]:text-black
+                              "
+                            >
                               <SelectValue placeholder="Select booking type" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
@@ -314,27 +321,6 @@ export default function RequestPage() {
                           />
                         </div>
                       </div>
-
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <Label htmlFor="company">Company/Organization</Label>
-                          <Input
-                            id="company"
-                            value={formData.company}
-                            onChange={(e) => handleInputChange("company", e.target.value)}
-                            className="mt-1"
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="position">Position/Title</Label>
-                          <Input
-                            id="position"
-                            value={formData.position}
-                            onChange={(e) => handleInputChange("position", e.target.value)}
-                            className="mt-1"
-                          />
-                        </div>
-                      </div>
                     </div>
 
                     <div className="space-y-4">
@@ -356,7 +342,14 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="serviceType">Service Type *</Label>
                           <Select onValueChange={(value) => handleInputChange("serviceType", value)}>
-                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
+                            <SelectTrigger
+                              className="
+                                mt-1 bg-white text-black border border-gray-300
+                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
+                                [&>svg]:text-black [&>svg]:opacity-100
+                                [&_.text-muted-foreground]:text-black
+                              "
+                            >
                               <SelectValue placeholder="Select service type" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
@@ -376,7 +369,14 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="urgency">Urgency Level *</Label>
                           <Select onValueChange={(value) => handleInputChange("urgency", value)}>
-                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
+                            <SelectTrigger
+                              className="
+                                mt-1 bg-white text-black border border-gray-300
+                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
+                                [&>svg]:text-black [&>svg]:opacity-100
+                                [&_.text-muted-foreground]:text-black
+                              "
+                            >
                               <SelectValue placeholder="Select urgency" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
@@ -404,7 +404,14 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="duration">Duration</Label>
                           <Select onValueChange={(value) => handleInputChange("duration", value)}>
-                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
+                            <SelectTrigger
+                              className="
+                                mt-1 bg-white text-black border border-gray-300
+                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
+                                [&>svg]:text-black [&>svg]:opacity-100
+                                [&_.text-muted-foreground]:text-black
+                              "
+                            >
                               <SelectValue placeholder="Select duration" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
@@ -422,7 +429,14 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="teamSize">Team Size Required</Label>
                           <Select onValueChange={(value) => handleInputChange("teamSize", value)}>
-                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
+                            <SelectTrigger
+                              className="
+                                mt-1 bg-white text-black border border-gray-300
+                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
+                                [&>svg]:text-black [&>svg]:opacity-100
+                                [&_.text-muted-foreground]:text-black
+                              "
+                            >
                               <SelectValue placeholder="Select team size" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
