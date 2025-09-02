@@ -256,7 +256,7 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="bookingType">Are you booking on behalf of a client? *</Label>
                           <Select onValueChange={(value) => handleInputChange("bookingType", value)}>
-                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
+                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
                               <SelectValue placeholder="Select booking type" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
@@ -356,7 +356,7 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="serviceType">Service Type *</Label>
                           <Select onValueChange={(value) => handleInputChange("serviceType", value)}>
-                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
+                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
                               <SelectValue placeholder="Select service type" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
@@ -376,7 +376,7 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="urgency">Urgency Level *</Label>
                           <Select onValueChange={(value) => handleInputChange("urgency", value)}>
-                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
+                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
                               <SelectValue placeholder="Select urgency" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
@@ -404,7 +404,7 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="duration">Duration</Label>
                           <Select onValueChange={(value) => handleInputChange("duration", value)}>
-                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
+                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
                               <SelectValue placeholder="Select duration" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
@@ -422,14 +422,14 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="teamSize">Team Size Required</Label>
                           <Select onValueChange={(value) => handleInputChange("teamSize", value)}>
-                            <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
+                            <SelectTrigger className="mt-1 bg-white text-black border border-gray-300">
                               <SelectValue placeholder="Select team size" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="1">1 Operative</SelectItem>
                               <SelectItem value="2">2 Operatives</SelectItem>
-                              <SelectItem value="3-5">3-5 Operatives</SelectItem>
-                              <SelectItem value="6-10">6-10 Operatives</SelectItem>
+                              <SelectItem value="3-5">3–5 Operatives</SelectItem>
+                              <SelectItem value="6-10">6–10 Operatives</SelectItem>
                               <SelectItem value="10+">10+ Operatives</SelectItem>
                             </SelectContent>
                           </Select>
@@ -677,4 +677,3 @@ export default function RequestPage() {
     </div>
   )
 }
-
