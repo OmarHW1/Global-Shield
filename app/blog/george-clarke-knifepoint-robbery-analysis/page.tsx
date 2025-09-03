@@ -101,11 +101,11 @@ export default function GeorgeClarkeRobberyAnalysis() {
         <div className="relative max-w-4xl mx-auto px-4">
           <nav aria-label="Breadcrumb" className="mb-6">
             <Link
-              href="/blog"
+              href="/case-studies"
               className="inline-flex items-center text-gray-300 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Blog
+              Back to Articles
             </Link>
           </nav>
 
