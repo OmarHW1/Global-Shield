@@ -11,7 +11,7 @@ export const metadata = {
     "The 2025 threat landscape for UHNW households in London—drones, social media OSINT, insider risks, and smart-home exploits—and how layered residential security keeps families safe.",
   metadataBase: new URL("https://www.globalshieldprotection.com"),
   alternates: {
-    canonical: "/case-studies/residential-security-2025-london-homes",
+    canonical: "/blog/residential-security-2025-london-homes",
   },
   openGraph: {
     type: "article",
