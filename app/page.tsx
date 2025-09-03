@@ -138,7 +138,7 @@ export default function HomePage() {
               <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
-              <div className="text-4xl font-bold text-black mb-2">4+</div>
+              <div className="text-4xl font-bold text-black mb-2">20+</div>
               <div className="text-gray-600 font-medium">Years Experience</div>
             </div>
             <div className="text-center">
