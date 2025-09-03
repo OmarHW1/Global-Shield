@@ -440,7 +440,7 @@ export default function RequestPage() {
                       <Button
                         type="submit"
                         size="lg"
-                        className={`w-full font-medium ${
+                        className={`w-full font-medium !text-white ${
                           requestType === "immediate" ? "bg-red-600 hover:bg-red-700" : "bg-black hover:bg-gray-800"
                         }`}
                         disabled={!formData.confidentiality || !formData.terms}
