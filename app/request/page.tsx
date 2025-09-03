@@ -261,7 +261,7 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_.text-muted-foreground]:text-black
+                                [&_[data-placeholder]]:text-black
                               "
                             >
                               <SelectValue placeholder="Select booking type" />
@@ -296,31 +296,6 @@ export default function RequestPage() {
                           />
                         </div>
                       </div>
-
-                      <div className="grid md:grid-cols-2 gap-4">
-                        <div>
-                          <Label htmlFor="email">Email Address *</Label>
-                          <Input
-                            id="email"
-                            type="email"
-                            value={formData.email}
-                            onChange={(e) => handleInputChange("email", e.target.value)}
-                            required
-                            className="mt-1"
-                          />
-                        </div>
-                        <div>
-                          <Label htmlFor="phone">Phone Number *</Label>
-                          <Input
-                            id="phone"
-                            type="tel"
-                            value={formData.phone}
-                            onChange={(e) => handleInputChange("phone", e.target.value)}
-                            required
-                            className="mt-1"
-                          />
-                        </div>
-                      </div>
                     </div>
 
                     <div className="space-y-4">
@@ -347,7 +322,7 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_.text-muted-foreground]:text-black
+                                [&_[data-placeholder]]:text-black
                               "
                             >
                               <SelectValue placeholder="Select service type" />
@@ -374,7 +349,7 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_.text-muted-foreground]:text-black
+                                [&_[data-placeholder]]:text-black
                               "
                             >
                               <SelectValue placeholder="Select urgency" />
@@ -409,7 +384,7 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_.text-muted-foreground]:text-black
+                                [&_[data-placeholder]]:text-black
                               "
                             >
                               <SelectValue placeholder="Select duration" />
@@ -434,7 +409,7 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_.text-muted-foreground]:text-black
+                                [&_[data-placeholder]]:text-black
                               "
                             >
                               <SelectValue placeholder="Select team size" />
@@ -583,7 +558,7 @@ export default function RequestPage() {
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold">
+                      <div className="w-6 h-6 bg-black text-white rounded-full flex items_CENTER justify-center text-xs font-bold">
                         2
                       </div>
                       <div>
@@ -665,7 +640,7 @@ export default function RequestPage() {
               <p className="text-gray-600 text-sm">Military and intelligence trained professionals</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mx_auto mb-4">
                 <Globe className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold mb-2">Global Reach</h3>
@@ -680,7 +655,7 @@ export default function RequestPage() {
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                <Lock className="w-6 h-6 text-white" />
+                <Lock className="w-6 h-6 text_white" />
               </div>
               <h3 className="font-semibold mb-2">Total Discretion</h3>
               <p className="text-gray-600 text-sm">Absolute confidentiality guaranteed</p>
