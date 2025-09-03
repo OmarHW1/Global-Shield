@@ -1,13 +1,40 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useMemo } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Search, ArrowRight } from "lucide-react"
 
-// Placeholder for Contentful data fetching — will map over this later
-const posts = [
+type Post = {
+  slug: string
+  title: string
+  subtitle: string
+  excerpt: string
+  featuredImage: string
+  category: "Case Study" | "Industry Article" | "News Analysis" | string
+  date: string // ISO
+  author: string
+  href: string // absolute path for flexibility
+}
+
+// Articles / Case Studies data
+const posts: Post[] = [
+  // NEW — Case Studies section article
+  {
+    slug: "residential-security-2025-london-homes",
+    title: "Residential Security in 2025: Protecting London’s Luxury Homes",
+    subtitle:
+      "Drones, OSINT, insider risk & smart-home exploits—and the layered defences that work.",
+    excerpt:
+      "The 2025 threat landscape blends physical and digital risks. Here’s how UHNW households harden estates without disrupting family life.",
+    featuredImage: "/images/london-luxury-home-night.jpg",
+    category: "Industry Article",
+    date: "2025-09-03",
+    author: "Global Shield Protection",
+    href: "/case-studies/residential-security-2025-london-homes",
+  },
+
   {
     slug: "knightsbridge-watch-attack-analysis",
     title: "Knightsbridge Watch Attack: How Close Protection Could Have Prevented Tragedy",
@@ -19,6 +46,7 @@ const posts = [
     category: "News Analysis",
     date: "2025-08-13",
     author: "Global Shield Protection",
+    href: "/blog/knightsbridge-watch-attack-analysis",
   },
   {
     slug: "st-johns-wood-mansion-heist-analysis",
@@ -30,6 +58,7 @@ const posts = [
     category: "News Analysis",
     date: "2025-01-15",
     author: "Global Shield Security Team",
+    href: "/blog/st-johns-wood-mansion-heist-analysis",
   },
   {
     slug: "george-clarke-knifepoint-robbery-analysis",
@@ -42,6 +71,7 @@ const posts = [
     category: "Case Study",
     date: "2025-01-20",
     author: "Global Shield Protection",
+    href: "/blog/george-clarke-knifepoint-robbery-analysis",
   },
   {
     slug: "richmond-jewellery-raid-analysis",
@@ -53,6 +83,7 @@ const posts = [
     category: "Case Study",
     date: "2025-01-18",
     author: "Global Shield Security Team",
+    href: "/blog/richmond-jewellery-raid-analysis",
   },
   {
     slug: "residential-security-team-benefits",
@@ -65,6 +96,7 @@ const posts = [
     category: "Industry Article",
     date: "2025-01-16",
     author: "Global Shield Protection",
+    href: "/blog/residential-security-team-benefits",
   },
   {
     slug: "rolex-ripper-gangs-london-elite",
@@ -76,6 +108,7 @@ const posts = [
     category: "Industry Article",
     date: "2025-01-14",
     author: "Global Shield Security Team",
+    href: "/blog/rolex-ripper-gangs-london-elite",
   },
 ]
 
@@ -96,11 +129,19 @@ export default function CaseStudiesPage() {
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [searchTerm, setSearchTerm] = useState("")
 
-  const filteredPosts = posts.filter((post) => {
+  // Sort newest first (by date)
+  const sortedPosts = useMemo(
+    () =>
+      [...posts].sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      ),
+    []
+  )
+
+  const filteredPosts = sortedPosts.filter((post) => {
     const matchesCategory = selectedCategory === "All" || post.category === selectedCategory
-    const matchesSearch =
-      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+    const haystack = (post.title + " " + post.excerpt + " " + post.subtitle).toLowerCase()
+    const matchesSearch = haystack.includes(searchTerm.toLowerCase())
     return matchesCategory && matchesSearch
   })
 
@@ -124,7 +165,7 @@ export default function CaseStudiesPage() {
         <div className="max-w-6xl mx-auto px-4">
           {/* Search Bar */}
           <div className="relative max-w-md mx-auto mb-8">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
             <input
               type="text"
               placeholder="Search articles and case studies..."
@@ -167,7 +208,7 @@ export default function CaseStudiesPage() {
                   key={idx}
                   className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group"
                 >
-                  <Link href={`/blog/${post.slug}`} className="block">
+                  <Link href={post.href} className="block">
                     <div className="relative overflow-hidden">
                       <Image
                         src={post.featuredImage || "/placeholder.svg"}
@@ -178,7 +219,9 @@ export default function CaseStudiesPage() {
                       />
                       <div className="absolute top-4 left-4">
                         <span
-                          className={`px-3 py-1 text-xs font-semibold rounded-full border ${getCategoryColor(post.category)}`}
+                          className={`px-3 py-1 text-xs font-semibold rounded-full border ${getCategoryColor(
+                            post.category
+                          )}`}
                         >
                           {post.category}
                         </span>
@@ -210,7 +253,7 @@ export default function CaseStudiesPage() {
             </div>
           )}
 
-          {/* Load More Button */}
+          {/* Load More Button (placeholder) */}
           {filteredPosts.length > 0 && (
             <div className="text-center mt-12">
               <Button
