@@ -159,6 +159,16 @@ export default function RequestPage() {
     )
   }
 
+  const selectTriggerClasses = `
+    mt-1 bg-white text-black !border-black
+    hover:!border-black
+    focus:outline-none focus:!ring-1 focus:!ring-black focus:!border-black
+    data-[state=open]:!border-black
+    [&>svg]:!text-black [&>svg]:opacity-100
+  `
+
+  const selectValueClasses = `!text-black data-[placeholder]:!text-black`
+
   return (
     <div className="min-h-screen bg-white pt-16">
       <section className="py-24 bg-black text-white">
@@ -242,14 +252,8 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="bookingType">Are you booking on behalf of a client? *</Label>
                           <Select onValueChange={(value) => handleInputChange("bookingType", value)}>
-                            <SelectTrigger
-                              className="
-                                mt-1 bg-white text-black border border-gray-300
-                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
-                                [&>svg]:text-black [&>svg]:opacity-100
-                              "
-                            >
-                              <SelectValue placeholder="Select booking type" className="text-black data-[placeholder]:text-black" />
+                            <SelectTrigger className={selectTriggerClasses}>
+                              <SelectValue placeholder="Select booking type" className={selectValueClasses} />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="self">No, booking for myself</SelectItem>
@@ -302,14 +306,8 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="serviceType">Service Type *</Label>
                           <Select onValueChange={(value) => handleInputChange("serviceType", value)}>
-                            <SelectTrigger
-                              className="
-                                mt-1 bg-white text-black border border-gray-300
-                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
-                                [&>svg]:text-black [&>svg]:opacity-100
-                              "
-                            >
-                              <SelectValue placeholder="Select service type" className="text-black data-[placeholder]:text-black" />
+                            <SelectTrigger className={selectTriggerClasses}>
+                              <SelectValue placeholder="Select service type" className={selectValueClasses} />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="close-protection">Close Protection</SelectItem>
@@ -328,14 +326,8 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="urgency">Urgency Level *</Label>
                           <Select onValueChange={(value) => handleInputChange("urgency", value)}>
-                            <SelectTrigger
-                              className="
-                                mt-1 bg-white text-black border border-gray-300
-                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
-                                [&>svg]:text-black [&>svg]:opacity-100
-                              "
-                            >
-                              <SelectValue placeholder="Select urgency" className="text-black data-[placeholder]:text-black" />
+                            <SelectTrigger className={selectTriggerClasses}>
+                              <SelectValue placeholder="Select urgency" className={selectValueClasses} />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="immediate">Immediate (Within 24 hours)</SelectItem>
@@ -362,14 +354,8 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="duration">Duration</Label>
                           <Select onValueChange={(value) => handleInputChange("duration", value)}>
-                            <SelectTrigger
-                              className="
-                                mt-1 bg-white text-black border border-gray-300
-                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
-                                [&>svg]:text-black [&>svg]:opacity-100
-                              "
-                            >
-                              <SelectValue placeholder="Select duration" className="text-black data-[placeholder]:text-black" />
+                            <SelectTrigger className={selectTriggerClasses}>
+                              <SelectValue placeholder="Select duration" className={selectValueClasses} />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="1-day">1 Day</SelectItem>
@@ -386,14 +372,8 @@ export default function RequestPage() {
                         <div>
                           <Label htmlFor="teamSize">Team Size Required</Label>
                           <Select onValueChange={(value) => handleInputChange("teamSize", value)}>
-                            <SelectTrigger
-                              className="
-                                mt-1 bg-white text-black border border-gray-300
-                                focus:outline-none focus:ring-1 focus:ring-black focus:border-black
-                                [&>svg]:text-black [&>svg]:opacity-100
-                              "
-                            >
-                              <SelectValue placeholder="Select team size" className="text-black data-[placeholder]:text-black" />
+                            <SelectTrigger className={selectTriggerClasses}>
+                              <SelectValue placeholder="Select team size" className={selectValueClasses} />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="1">1 Operative</SelectItem>
@@ -561,7 +541,7 @@ export default function RequestPage() {
                         4
                       </div>
                       <div>
-                        <p className="font-medium text_sm">Active Protection</p>
+                        <p className="font-medium text-sm">Active Protection</p>
                         <p className="text-gray-600 text-xs">Continuous security coverage</p>
                       </div>
                     </div>
@@ -647,4 +627,3 @@ export default function RequestPage() {
     </div>
   )
 }
-
