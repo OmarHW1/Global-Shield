@@ -1,47 +1,115 @@
 import Image from "next/image"
 import Link from "next/link"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, ArrowRight, Calendar, User } from "lucide-react"
 
 export const metadata = {
-  title: "George Clarke Knifepoint Robbery: Why Public Figures Need Close Protection | Global Shield Protection",
+  title:
+    "George Clarke Knifepoint Robbery: Why Public Figures Need Close Protection | Global Shield Protection",
   description:
-    "A detailed security analysis of the George Clarke knifepoint robbery and how professional close protection could have prevented the incident.",
+    "Security analysis of the George Clarke knifepoint robbery and how professional close protection mitigates risks for public figures in London.",
+  metadataBase: new URL("https://www.globalshieldprotection.com"),
+  alternates: {
+    canonical: "/blog/george-clarke-knifepoint-robbery-analysis",
+  },
   openGraph: {
-    title: "George Clarke Knifepoint Robbery: Why Public Figures Need Close Protection",
+    type: "article",
+    title:
+      "George Clarke Knifepoint Robbery: Why Public Figures Need Close Protection",
     description:
-      "A detailed security analysis of the George Clarke knifepoint robbery and how professional close protection could have prevented the incident.",
+      "How professional close protection could have prevented the incident—and lessons for public figures in London.",
+    url: "https://www.globalshieldprotection.com/blog/george-clarke-knifepoint-robbery-analysis",
+    siteName: "Global Shield Protection",
+    images: [
+      {
+        url: "/london-street-scene-with-security-professional.png",
+        width: 1200,
+        height: 630,
+        alt: "Close protection operative observing a central London street at night",
+      },
+    ],
+    publishedTime: "2025-01-20T00:00:00.000Z",
+    authors: ["Global Shield Protection"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "George Clarke Knifepoint Robbery: Why Public Figures Need Close Protection",
+    description:
+      "How professional close protection could have prevented the incident—and lessons for public figures in London.",
     images: ["/london-street-scene-with-security-professional.png"],
   },
+  robots: { index: true, follow: true },
 }
 
 export default function GeorgeClarkeRobberyAnalysis() {
+  const publishedISO = "2025-01-20T00:00:00.000Z"
+  const readTime = "6 min read"
+
   return (
     <div className="bg-white min-h-screen">
+      {/* JSON-LD for rich results */}
+      <Script
+        id="ld-blogposting"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline:
+              "George Clarke Knifepoint Robbery: Why Public Figures Need Close Protection",
+            description:
+              "Security analysis of the George Clarke knifepoint robbery and how professional close protection mitigates risks for public figures in London.",
+            image: [
+              "https://www.globalshieldprotection.com/london-street-scene-with-security-professional.png",
+            ],
+            datePublished: publishedISO,
+            dateModified: publishedISO,
+            author: { "@type": "Organization", name: "Global Shield Protection" },
+            publisher: {
+              "@type": "Organization",
+              name: "Global Shield Protection",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://www.globalshieldprotection.com/images/c2-white-logo.png",
+              },
+            },
+            mainEntityOfPage: {
+              "@type": "WebPage",
+              "@id":
+                "https://www.globalshieldprotection.com/blog/george-clarke-knifepoint-robbery-analysis",
+            },
+          }),
+        }}
+      />
+
       {/* Hero Section */}
       <section className="relative py-32 bg-black text-white overflow-hidden">
         <div className="absolute inset-0">
           <Image
             src="/london-street-scene-with-security-professional.png"
-            alt="London street security scene"
+            alt="Close protection operative observing a central London street at night"
             fill
+            priority
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 75vw, 1200px"
             className="object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-black/60" />
         </div>
 
         <div className="relative max-w-4xl mx-auto px-4">
-          <div className="mb-6">
+          <nav aria-label="Breadcrumb" className="mb-6">
             <Link
-              href="/case-studies"
+              href="/blog"
               className="inline-flex items-center text-gray-300 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
-              Back to Case Studies
+              Back to Blog
             </Link>
-          </div>
+          </nav>
 
-          <div className="mb-6">
+          <div className="mb-6 flex items-center gap-2">
             <span className="px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 text-blue-800 border border-blue-200">
               Case Study
             </span>
@@ -53,10 +121,10 @@ export default function GeorgeClarkeRobberyAnalysis() {
 
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
             A shocking attack on a beloved TV presenter highlights the vulnerability of public figures in everyday
-            situations.
+            situations—and how professional protection changes outcomes.
           </p>
 
-          <div className="flex items-center gap-6 text-sm text-gray-400">
+          <div className="flex flex-wrap items-center gap-6 text-sm text-gray-400">
             <div className="flex items-center">
               <Calendar className="w-4 h-4 mr-2" />
               20 January 2025
@@ -65,6 +133,8 @@ export default function GeorgeClarkeRobberyAnalysis() {
               <User className="w-4 h-4 mr-2" />
               Global Shield Protection
             </div>
+            <div aria-hidden className="h-1 w-1 rounded-full bg-gray-500" />
+            <div className="text-gray-300">{readTime}</div>
           </div>
         </div>
       </section>
@@ -75,36 +145,47 @@ export default function GeorgeClarkeRobberyAnalysis() {
           <div className="prose prose-lg max-w-none">
             <h2 className="text-3xl font-bold text-black mb-6">Incident Overview</h2>
             <p className="text-gray-700 leading-relaxed mb-6">
-              In July 2025, Channel 4 presenter George Clarke was robbed at knifepoint in central London. The assailant
-              targeted Clarke for his high-value watch, threatening him with a blade before fleeing the scene. While
-              Clarke escaped unharmed, he later described the ordeal as "traumatic" and admitted the incident could
-              easily have turned fatal.
+              In <strong>January 2025</strong>, Channel 4 presenter George Clarke was robbed at knifepoint in central
+              London. The assailant targeted Clarke for his high-value watch, threatening him with a blade before
+              fleeing the scene. Clarke escaped unharmed but described the ordeal as “traumatic,” noting how quickly a
+              routine moment can escalate into life-threatening risk.
             </p>
             <p className="text-gray-700 leading-relaxed mb-8">
               The robbery highlights the increasing risks facing public figures and high-net-worth individuals (HNWIs)
-              in London, particularly those who move through the city without security support.
+              in London—particularly during predictable movements without structured security support. For an overview
+              of how we secure public appearances, see{" "}
+              <Link href="/services/close-protection" className="text-black underline hover:text-gray-700">
+                Close Protection
+              </Link>{" "}
+              and{" "}
+              <Link href="/services/secure-transport" className="text-black underline hover:text-gray-700">
+                Secure Transport
+              </Link>
+              .
             </p>
 
-            <h2 className="text-3xl font-bold text-black mb-6">Why Central London is High-Risk for Public Figures</h2>
+            <h2 className="text-3xl font-bold text-black mb-6">
+              Why Central London is High-Risk for Public Figures
+            </h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               Central London presents unique challenges for public figures, creating an environment where:
             </p>
             <ul className="list-disc pl-6 mb-8 text-gray-700 space-y-2">
               <li>
                 <strong>Visibility:</strong> TV personalities, athletes, and influencers are recognisable in public,
-                making them easy targets.
+                making them easier targets for opportunists and organised gangs.
               </li>
               <li>
-                <strong>Valuable possessions:</strong> Luxury watches and jewellery are visible signals to organised
-                gangs.
+                <strong>High-value signals:</strong> Luxury watches and jewellery act as visual cues, drawing attention
+                in nightlife and transit hubs.
               </li>
               <li>
-                <strong>Predictable movements:</strong> Media figures often attend known events, leaving routines
-                vulnerable.
+                <strong>Predictable movements:</strong> Appearances and events create repeatable patterns that bad
+                actors can exploit.
               </li>
               <li>
-                <strong>Limited escape routes:</strong> Central streets and nightlife districts create choke points for
-                attackers.
+                <strong>Choke points:</strong> Narrow streets, queues, and venue exits limit escape routes and slow
+                response.
               </li>
             </ul>
 
@@ -112,50 +193,62 @@ export default function GeorgeClarkeRobberyAnalysis() {
               How Close Protection Could Have Prevented This Incident
             </h2>
 
-            <h3 className="text-2xl font-semibold text-black mb-4">1. Protective Surveillance</h3>
+            <h3 className="text-2xl font-semibold text-black mb-4">1) Protective Surveillance</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              A close protection operative would have identified hostile intent before the attacker closed in.
+              A close protection operative (CPO) would proactively scan for hostile intent—spotting body language,
+              approach vectors, and team behaviours before an assailant closes distance.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
-              <strong>Preventive Measure:</strong> Early warning and intervention before escalation.
+              <strong>Preventive measure:</strong> Early detection and intervention before escalation.
             </p>
 
-            <h3 className="text-2xl font-semibold text-black mb-4">2. Secure Movement Protocols</h3>
+            <h3 className="text-2xl font-semibold text-black mb-4">2) Secure Movement Protocols</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Clarke could have been escorted from venue to vehicle with minimal public exposure.
+              Escorting from venue to vehicle with controlled routes, timed departures, and staged pick-ups drastically
+              reduces exposure time in uncontrolled environments.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
-              <strong>Preventive Measure:</strong> Reduces time in uncontrolled environments.
+              <strong>Preventive measure:</strong> Minimises time-on-street and exposure at choke points.
             </p>
 
-            <h3 className="text-2xl font-semibold text-black mb-4">3. Counter-Surveillance</h3>
+            <h3 className="text-2xl font-semibold text-black mb-4">3) Counter-Surveillance</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Professionals are trained to detect if a client is being followed.
+              Trained teams identify whether the principal is being followed or observed and disrupt those patterns.
             </p>
             <p className="text-gray-700 leading-relaxed mb-6">
-              <strong>Preventive Measure:</strong> Breaks attacker planning before engagement.
+              <strong>Preventive measure:</strong> Breaks attacker planning cycles before engagement.
             </p>
 
-            <h3 className="text-2xl font-semibold text-black mb-4">4. Rapid Intervention</h3>
+            <h3 className="text-2xl font-semibold text-black mb-4">4) Rapid Intervention</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
-              Operatives are trained to shield clients and neutralise threats.
+              If a threat materialises, operatives shield the principal, create distance, and coordinate immediate
+              withdrawal.
             </p>
             <p className="text-gray-700 leading-relaxed mb-8">
-              <strong>Preventive Measure:</strong> De-escalates situations before harm occurs.
+              <strong>Preventive measure:</strong> Fast de-escalation and safe extraction.
             </p>
 
-            <h2 className="text-3xl font-bold text-black mb-6">Global Shield Protection's Approach</h2>
+            <h2 className="text-3xl font-bold text-black mb-6">Global Shield Protection’s Approach</h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              We specialise in low-profile close protection for high-visibility clients. Our teams balance safety with
-              discretion, allowing public figures to maintain a normal lifestyle without constant disruption.
+              We specialise in low-profile protection for high-visibility clients—balancing safety with discretion so
+              you can maintain normal routines without compromising security.
             </p>
             <ul className="list-disc pl-6 mb-8 text-gray-700 space-y-2">
-              <li>Advance planning with intelligence-led mapping of threat zones.</li>
-              <li>
-                Low-profile but effective escorting, so clients maintain normal routines without sacrificing safety.
-              </li>
-              <li>Discreet coordination with local law enforcement in high-risk districts.</li>
+              <li>Advance planning with intelligence-led mapping of threat zones and timings.</li>
+              <li>Low-profile escorts and covert vehicles to blend public movements smoothly.</li>
+              <li>Discreet coordination with venue security and, where appropriate, local law enforcement.</li>
             </ul>
+
+            <div className="bg-gray-50 border border-gray-200 p-6 rounded-lg mb-8">
+              <h3 className="font-semibold text-black mb-3">Considering Protection?</h3>
+              <p className="text-gray-700">
+                Speak to a specialist about discreet coverage for events, media days, or travel.{" "}
+                <Link href="/request" className="text-black underline hover:text-gray-700">
+                  Request a confidential consultation
+                </Link>
+                .
+              </p>
+            </div>
 
             <h2 className="text-3xl font-bold text-black mb-6">Key Takeaways for Public Figures</h2>
             <ul className="list-disc pl-6 mb-8 text-gray-700 space-y-2">
@@ -163,28 +256,40 @@ export default function GeorgeClarkeRobberyAnalysis() {
                 <strong>Recognition increases exposure</strong> — fame is a risk multiplier.
               </li>
               <li>
-                <strong>Luxury items attract attention</strong> — especially in public nightlife zones.
+                <strong>Luxury items attract attention</strong> — especially in nightlife zones and transit hubs.
               </li>
               <li>
-                <strong>Security ensures peace of mind</strong> — the right team makes incidents impossible before they
-                happen.
+                <strong>Structured security prevents incidents</strong> — professional teams make attacks unlikely and
+                short-lived.
               </li>
             </ul>
 
             <div className="bg-gray-50 p-6 rounded-lg mb-8">
               <p className="text-sm text-gray-600 mb-2">
-                <strong>Source:</strong>
+                <strong>Sources (add your final links):</strong>
               </p>
-              <p className="text-sm text-gray-600">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-600 hover:text-blue-800 underline"
-                >
-                  The Scottish Sun – George Clarke breaks silence on 'traumatic' knifepoint robbery
-                </a>
-              </p>
+              <ul className="list-disc pl-6 text-sm text-gray-600 space-y-1">
+                <li>
+                  <a
+                    href="https://example.com/todo-replace-with-primary-source"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 underline"
+                  >
+                    TODO: Primary news report on the incident
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://example.com/todo-replace-with-secondary-source"
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 underline"
+                  >
+                    TODO: Secondary coverage / follow-up statement
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -200,9 +305,10 @@ export default function GeorgeClarkeRobberyAnalysis() {
                 <div className="relative overflow-hidden">
                   <Image
                     src="/images/harrods-knightsbridge-night.jpg"
-                    alt="Knightsbridge security analysis"
+                    alt="Night-time security risks around Knightsbridge luxury retail"
                     width={400}
                     height={250}
+                    sizes="(max-width:768px) 100vw, 400px"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
@@ -211,7 +317,7 @@ export default function GeorgeClarkeRobberyAnalysis() {
                     Knightsbridge Watch Attack Analysis
                   </h3>
                   <p className="text-gray-600 text-sm">
-                    How close protection could have prevented tragedy in London's luxury district.
+                    How close protection reduces risk in London’s luxury district.
                   </p>
                 </div>
               </article>
@@ -222,17 +328,20 @@ export default function GeorgeClarkeRobberyAnalysis() {
                 <div className="relative overflow-hidden">
                   <Image
                     src="/images/st-johns-wood-mansion.jpg"
-                    alt="St John's Wood mansion heist analysis"
+                    alt="Residential security considerations for prime London properties"
                     width={400}
                     height={250}
+                    sizes="(max-width:768px) 100vw, 400px"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold mb-3 text-black group-hover:text-gray-700 transition-colors">
-                    St John's Wood Mansion Heist Analysis
+                    St John&apos;s Wood Mansion Heist Analysis
                   </h3>
-                  <p className="text-gray-600 text-sm">How residential security could have prevented a £10M loss.</p>
+                  <p className="text-gray-600 text-sm">
+                    How residential security could have prevented a £10M loss.
+                  </p>
                 </div>
               </article>
             </Link>
@@ -242,9 +351,10 @@ export default function GeorgeClarkeRobberyAnalysis() {
                 <div className="relative overflow-hidden">
                   <Image
                     src="/luxury-jewellery-store-security.png"
-                    alt="Richmond jewellery raid analysis"
+                    alt="Retail security measures for high-value jewellery stores"
                     width={400}
                     height={250}
+                    sizes="(max-width:768px) 100vw, 400px"
                     className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
