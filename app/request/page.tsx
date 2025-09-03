@@ -448,12 +448,12 @@ export default function RequestPage() {
                         {requestType === "consultation" ? (
                           <>
                             Submit Consultation Request
-                            <ArrowRight className="ml-2 w-5 h-5" />
+                            <ArrowRight className="ml-2 w-5 h-5 text-white" />
                           </>
                         ) : (
                           <>
                             Request Immediate Protection
-                            <Shield className="ml-2 w-5 h-5" />
+                            <Shield className="ml-2 w-5 h-5 text-white" />
                           </>
                         )}
                       </Button>
