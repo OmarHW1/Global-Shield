@@ -271,7 +271,7 @@ export default function GeorgeClarkeRobberyAnalysis() {
               <ul className="list-disc pl-6 text-sm text-gray-600 space-y-1">
                 <li>
                   <a
-                    href="https://example.com/todo-replace-with-primary-source"
+                    href="https://www.standard.co.uk/showbiz/george-clarke-robbed-knifepoint-watch-oxford-circus-london-b1200495.html"
                     target="_blank"
                     rel="nofollow noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 underline"
@@ -281,7 +281,7 @@ export default function GeorgeClarkeRobberyAnalysis() {
                 </li>
                 <li>
                   <a
-                    href="https://example.com/todo-replace-with-secondary-source"
+                    href="https://www.thesun.co.uk/tv/33104183/george-clarke-breaks-silence-traumatic-robbery/"
                     target="_blank"
                     rel="nofollow noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 underline"
