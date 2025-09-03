@@ -276,7 +276,7 @@ export default function GeorgeClarkeRobberyAnalysis() {
                     rel="nofollow noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 underline"
                   >
-                    TODO: Primary news report on the incident
+                    Primary news report on the incident
                   </a>
                 </li>
                 <li>
@@ -286,7 +286,7 @@ export default function GeorgeClarkeRobberyAnalysis() {
                     rel="nofollow noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 underline"
                   >
-                    TODO: Secondary coverage / follow-up statement
+                    Secondary coverage / follow-up statement
                   </a>
                 </li>
               </ul>
