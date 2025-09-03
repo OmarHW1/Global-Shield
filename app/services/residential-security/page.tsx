@@ -24,13 +24,9 @@ export default function ResidentialSecurityPage() {
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <section className="relative py-32 bg-black text-white overflow-hidden">
-        <div className="absolute inset-0">
-          <Image
-            src="/placeholder.svg?height=800&width=1200"
-            alt="Luxury residential estate with security"
-            fill
-            className="object-cover opacity-30"
-          />
+         {/* (No background image—solid black only) */}
+         <div className="relative max-w-4xl mx-auto px-4">
+            {/* ...your breadcrumb, badge, h1, meta, etc. go here... */}
         </div>
 
         <div className="relative z-10 max-w-6xl mx-auto px-4">
@@ -381,7 +377,7 @@ export default function ResidentialSecurityPage() {
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Phone className="w-5 h-5 text-black" />
-                  <span className="text-gray-700">Available on request</span>
+                  <span className="text-gray-700">+44 (0) 7497 580 732</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="w-5 h-5 text-black" />
