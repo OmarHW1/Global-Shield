@@ -81,9 +81,7 @@ export default function RequestPage() {
                 </h2>
 
                 <p className="text-lg text-gray-600 mb-8">
-                  {requestType === "consultation"
-                    ? "✅ Your consultation request has been submitted. We'll contact you shortly."
-                    : "✅ Your consultation request has been submitted. We'll contact you shortly."}
+                  ✅ Your consultation request has been submitted. We'll contact you shortly.
                 </p>
 
                 <div className="bg-gray-50 rounded-lg p-6 mb-8">
@@ -93,31 +91,19 @@ export default function RequestPage() {
                       <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold mt-0.5">
                         1
                       </div>
-                      <p className="text-sm">
-                        {requestType === "consultation"
-                          ? "You'll receive a confirmation email within 5 minutes"
-                          : "Our rapid response team will contact you within 15 minutes"}
-                      </p>
+                      <p className="text-sm">You'll receive a confirmation email within 5 minutes</p>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold">
                         2
                       </div>
-                      <p className="text-sm">
-                        {requestType === "consultation"
-                          ? "A security specialist will call you to confirm details and answer any questions"
-                          : "We'll assess your immediate security needs and deploy appropriate protection"}
-                      </p>
+                      <p className="text-sm">A security specialist will call you to confirm details and answer any questions</p>
                     </div>
                     <div className="flex items-start space-x-3">
                       <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold">
                         3
                       </div>
-                      <p className="text-sm">
-                        {requestType === "consultation"
-                          ? "Your consultation will be conducted at the scheduled time with our security experts"
-                          : "Our team will provide continuous updates and coordinate your protection plan"}
-                      </p>
+                      <p className="text-sm">Your consultation will be conducted at the scheduled time with our security experts</p>
                     </div>
                   </div>
                 </div>
@@ -261,10 +247,9 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_[data-placeholder]]:text-black
                               "
                             >
-                              <SelectValue placeholder="Select booking type" />
+                              <SelectValue placeholder="Select booking type" className="text-black data-[placeholder]:text-black" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="self">No, booking for myself</SelectItem>
@@ -322,10 +307,9 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_[data-placeholder]]:text-black
                               "
                             >
-                              <SelectValue placeholder="Select service type" />
+                              <SelectValue placeholder="Select service type" className="text-black data-[placeholder]:text-black" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="close-protection">Close Protection</SelectItem>
@@ -349,10 +333,9 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_[data-placeholder]]:text-black
                               "
                             >
-                              <SelectValue placeholder="Select urgency" />
+                              <SelectValue placeholder="Select urgency" className="text-black data-[placeholder]:text-black" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="immediate">Immediate (Within 24 hours)</SelectItem>
@@ -384,10 +367,9 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_[data-placeholder]]:text-black
                               "
                             >
-                              <SelectValue placeholder="Select duration" />
+                              <SelectValue placeholder="Select duration" className="text-black data-[placeholder]:text-black" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="1-day">1 Day</SelectItem>
@@ -409,10 +391,9 @@ export default function RequestPage() {
                                 mt-1 bg-white text-black border border-gray-300
                                 focus:outline-none focus:ring-1 focus:ring-black focus:border-black
                                 [&>svg]:text-black [&>svg]:opacity-100
-                                [&_[data-placeholder]]:text-black
                               "
                             >
-                              <SelectValue placeholder="Select team size" />
+                              <SelectValue placeholder="Select team size" className="text-black data-[placeholder]:text-black" />
                             </SelectTrigger>
                             <SelectContent sideOffset={4} className="bg-white text-black border border-gray-200 shadow-lg">
                               <SelectItem value="1">1 Operative</SelectItem>
@@ -558,7 +539,7 @@ export default function RequestPage() {
                       </div>
                     </div>
                     <div className="flex items-start space-x-3">
-                      <div className="w-6 h-6 bg-black text-white rounded-full flex items_CENTER justify-center text-xs font-bold">
+                      <div className="w-6 h-6 bg-black text-white rounded-full flex items-center justify-center text-xs font-bold">
                         2
                       </div>
                       <div>
@@ -580,7 +561,7 @@ export default function RequestPage() {
                         4
                       </div>
                       <div>
-                        <p className="font-medium text-sm">Active Protection</p>
+                        <p className="font-medium text_sm">Active Protection</p>
                         <p className="text-gray-600 text-xs">Continuous security coverage</p>
                       </div>
                     </div>
@@ -640,7 +621,7 @@ export default function RequestPage() {
               <p className="text-gray-600 text-sm">Military and intelligence trained professionals</p>
             </div>
             <div className="text-center">
-              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mx_auto mb-4">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold mb-2">Global Reach</h3>
@@ -655,7 +636,7 @@ export default function RequestPage() {
             </div>
             <div className="text-center">
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                <Lock className="w-6 h-6 text_white" />
+                <Lock className="w-6 h-6 text-white" />
               </div>
               <h3 className="font-semibold mb-2">Total Discretion</h3>
               <p className="text-gray-600 text-sm">Absolute confidentiality guaranteed</p>
@@ -666,3 +647,4 @@ export default function RequestPage() {
     </div>
   )
 }
+
