@@ -276,7 +276,7 @@ export default function KnightsbridgeAttackAnalysis() {
                     rel="nofollow noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800 underline"
                   >
-                    TODO: Add a follow-up or police update from a UK mainstream outlet (e.g., BBC, Sky News, Evening Standard)
+                    Met Police Statment 
                   </a>
                 </li>
               </ul>
