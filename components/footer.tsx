@@ -67,7 +67,7 @@ export default function Footer() {
               <p>London, United Kingdom</p>
               <p>24/7 Emergency Line</p>
               <p>+44 (0) 7497 580 732 </p>
-              <p>info.globalshield@gmail.com</p>
+              <p>info@globalshield.co.uk</p>
             </div>
 
             {/* Social Icons */}
