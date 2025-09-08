@@ -486,7 +486,7 @@ export default function RequestPage() {
                       <Mail className="w-4 h-4 text-gray-500 mr-3" />
                       <div>
                         <p className="font-medium">General Inquiries</p>
-                        <p className="text-gray-600 text-sm">info.globalshield@gmail.com</p>
+                        <p className="text-gray-600 text-sm">info@globalshield.co.uk</p>
                       </div>
                     </div>
                     <div className="flex items-center">
