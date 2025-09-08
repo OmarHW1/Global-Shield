@@ -741,10 +741,10 @@ export default function HomePage() {
                   <p className="text-sm text-gray-500">
                     Email your application to: <br />
                     <a
-                      href="mailto:careers@globalshieldprotection.com"
+                      href="mailto:careers@globalshield.co.uk"
                       className="text-black font-medium hover:underline"
                     >
-                      careers@globalshieldprotection.com
+                      careers@globalshield.co.uk
                     </a>
                   </p>
                 </div>
