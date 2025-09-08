@@ -15,20 +15,60 @@ export default function ContactPage() {
     email: "",
     phone: "",
     message: "",
-  })
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission
-    console.log("Form submitted:", formData)
-  }
+  const [isCooldown, setIsCooldown] = useState(false);
+  const [cooldown, setCooldown] = useState(0);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    })
-  }
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (isCooldown) return; // block spam
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        alert("Your message has been sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+
+        // start cooldown (e.g. 30s)
+        setIsCooldown(true);
+        setCooldown(30);
+
+        const timer = setInterval(() => {
+          setCooldown((prev) => {
+            if (prev <= 1) {
+              clearInterval(timer);
+              setIsCooldown(false);
+              return 0;
+            }
+            return prev - 1;
+          });
+        }, 1000);
+      } else {
+        alert("❌ Something went wrong. Please try again later.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("⚠️ Failed to send message. Check your connection.");
+    }
+  };
+
+
 
   return (
     <div className="min-h-screen bg-white">
@@ -119,8 +159,13 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full bg-black text-white hover:bg-gray-800">
-                  Send Secure Message
+                <Button 
+                  type="submit" 
+                  size="lg" 
+                  className="w-full bg-black text-white hover:bg-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
+                  disabled={isCooldown}
+                >
+                  {isCooldown ? `Please wait ${cooldown}s...` : "Send Secure Message"}
                 </Button>
               </form>
 
