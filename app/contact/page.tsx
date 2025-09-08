@@ -205,7 +205,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="font-bold text-lg mb-2 text-black">Email</h3>
-                        <p className="text-gray-600">info.globalshield@gmail.com</p>
+                        <p className="text-gray-600">info@globalshield.co.uk</p>
                         <p className="text-sm text-gray-500 mt-1">Secure encrypted communication</p>
                       </div>
                     </div>
