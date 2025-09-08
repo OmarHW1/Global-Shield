@@ -278,7 +278,7 @@ export default function HomePage() {
             <div className="w-24 h-1 bg-black mx-auto mb-8" />
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               A comprehensive guide to close protection for high-profile clients, plus operational insights for{" "}
-              <strong>London</strong>, <strong>Paris</strong>, <strong>Monaco</strong>, <strong>Dubai</strong>.
+              <strong>London</strong>, <strong>Paris</strong>, <strong>Monaco</strong>, <strong>Mykonos</strong>.
             </p>
           </header>
 
@@ -402,12 +402,12 @@ export default function HomePage() {
               </div>
 
               <div>
-                <h4 className="text-xl font-semibold text-black mb-3">Dubai, UAE</h4>
+                <h4 className="text-xl font-semibold text-black mb-3">Mykonos, Greece</h4>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Dubai's shopping mall environments and hotel districts are generally well-regulated, but predictable
-                  routines and high-value retail activities can increase exposure to opportunistic threats. We align our
-                  operations with local security protocols, combining low-profile protection teams with secure vehicle
-                  solutions to maintain discretion whilst ensuring comprehensive coverage.
+                  Mykonos’ vibrant nightlife, luxury villas, and busy summer crowds create a unique security landscape. 
+                  High-profile visitors and seasonal congestion can heighten risks of opportunistic crime and privacy breaches. 
+                  We provide discreet close protection and secure transport solutions, tailored to the island’s environment, 
+                  ensuring both safety and unobtrusive service.
                 </p>
               </div>
             </div>
