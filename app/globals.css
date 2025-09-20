@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Fix dropdown background */
+select {
+  background-color: white; /* makes it readable */
+  color: black; /* text visible */
+  border: 1px solid #ccc; /* optional for clarity */
+  padding: 6px;
+  border-radius: 4px;
+}
+
+select option {
+  background-color: white;
+  color: black;
+}

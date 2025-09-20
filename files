@@ -1,0 +1,253 @@
+// app/layout.tsx
+import type React from "react"
+import type { Metadata } from "next"
+import { Inter } from 'next/font/google'
+import "./globals.css"
+import Navigation from "@/components/navigation"
+import Footer from "@/components/footer"
+
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata: Metadata = {
+title: "Global Shield Protection - Bespoke Close Protection | International Risk Management",
+description:
+  "Elite close protection services for high-net-worth individuals, celebrities, executives, and diplomats. Precision, Discretion, Peace of Mind.",
+}
+
+export default function RootLayout({
+children,
+}: {
+children: React.ReactNode
+}) {
+return (
+  <html lang="en">
+    <body className={inter.className}>
+      {/* Skip to content for accessibility */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
+      <Navigation />
+      <main id="main-content" className="pt-16">{children}</main>
+      <Footer />
+    </body>
+  </html>
+)
+}
+
+// app/globals.css
+/* Skip link styles */
+.skip-link {
+position: absolute;
+top: -40px;
+left: 8px;
+z-index: 100;
+padding: 8px 12px;
+background: #000;
+color: #fff;
+border-radius: 6px;
+transition: top 0.2s ease;
+}
+.skip-link:focus {
+top: 8px;
+outline: 2px solid #fff;
+outline-offset: 2px;
+}
+
+// app/page.tsx
+import Image from "next/image"
+import HeroSection from "@/components/hero-section"
+import ServicesSection from "@/components/services-section"
+import CaseStudiesSection from "@/components/case-studies-section"
+import ContactSection from "@/components/contact-section"
+
+export default function Home() {
+return (
+  <div>
+    <HeroSection>
+      <Image
+        src="/images/london-financial-district-hero.png"
+        alt="Skyline of London's financial district at dusk"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+    </HeroSection>
+    <ServicesSection />
+    <CaseStudiesSection />
+    <ContactSection />
+  </div>
+)
+}
+
+// app/services/page.tsx
+import Image from "next/image"
+import HeroSection from "@/components/hero-section"
+import ServicesSection from "@/components/services-section"
+import CaseStudiesSection from "@/components/case-studies-section"
+import ContactSection from "@/components/contact-section"
+
+export default function Services() {
+return (
+  <div>
+    <HeroSection>
+      <Image
+        src="/images/earth-global-coverage-bw.jpg"
+        alt="Global service coverage map: view of Earth at night showing worldwide operations"
+        width={600}
+        height={500}
+        sizes="(max-width: 1024px) 100vw, 600px"
+        className="rounded-lg shadow-2xl"
+      />
+    </HeroSection>
+    <ServicesSection />
+    <CaseStudiesSection />
+    <ContactSection />
+  </div>
+)
+}
+
+// components/hero-right-modules.tsx
+import React from "react"
+import MiniRequestForm from "@/components/mini-request-form"
+import { CheckCircle } from "react-feather"
+
+export default function HeroRightModules() {
+const state = { success: true, message: "Your request has been submitted successfully." }
+
+return (
+  <div>
+    {state?.success ? (
+      <div
+        className="flex items-start gap-3 rounded-md border border-white/20 bg-white/10 p-3 text-white"
+        role="status"
+        aria-live="polite"
+      >
+        <CheckCircle className="w-5 h-5 text-green-400 mt-0.5" aria-hidden="true" />
+        <p className="text-sm">
+          {state.message}{" "}
+          <a href="tel:+447497580732" className="underline">
+            Immediate risk? Call our 24/7 hotline.
+          </a>
+        </p>
+      </div>
+    ) : (
+      <MiniRequestForm />
+    )}
+  </div>
+)
+}
+
+// app/case-studies/page.tsx
+import Image from "next/image"
+import CaseStudy from "@/components/case-study"
+
+export default function CaseStudies() {
+return (
+  <div>
+    <CaseStudy
+      title="High-profile Protection in London"
+      description="Our team successfully protected a high-profile individual in London during a volatile period."
+      newsLogo={
+        <Image
+          src="/images/news-logos/bbc-world-news-logo.png"
+          alt="BBC World News logo"
+          width={100}
+          height={20}
+          sizes="100px"
+          className="h-5 w-auto"
+        />
+      }
+    />
+    <CaseStudy
+      title="Executive Protection in New York"
+      description="We provided top-tier protection for a CEO during a major corporate event."
+      newsLogo={
+        <Image
+          src="/images/news-logos/cnn-logo.png"
+          alt="CNN logo"
+          width={80}
+          height={20}
+          sizes="80px"
+          className="h-5 w-auto"
+        />
+      }
+    />
+    <CaseStudy
+      title="Diplomatic Security in Paris"
+      description="Our services ensured the safety of a diplomat during a sensitive mission."
+      newsLogo={
+        <Image
+          src="/placeholder.svg?height=20&width=80"
+          alt="Reuters logo"
+          width={80}
+          height={20}
+          sizes="80px"
+          className="h-5 w-auto"
+        />
+      }
+    />
+    <CaseStudy
+      title="Celebrity Protection in Los Angeles"
+      description="We safeguarded a celebrity during a high-profile event in Los Angeles."
+      newsLogo={
+        <Image
+          src="/images/news-logos/la-times-logo.png"
+          alt="LA Times logo"
+          width={100}
+          height={20}
+          sizes="100px"
+          className="h-5 w-auto"
+        />
+      }
+    />
+    <CaseStudy
+      title="International Operations"
+      description="Our team operates globally, providing protection wherever it's needed."
+      newsLogo={
+        <Image
+          src="/placeholder.svg?height=20&width=60"
+          alt="Sky News logo"
+          width={60}
+          height={20}
+          sizes="60px"
+          className="h-5 w-auto"
+        />
+      }
+    />
+    <CaseStudy
+      title="Crisis Management"
+      description="We handle crises with precision and discretion."
+      newsLogo={
+        <Image
+          src="/images/news-logos/france24-logo.webp"
+          alt="France 24 logo"
+          width={90}
+          height={20}
+          sizes="90px"
+          className="h-5 w-auto"
+        />
+      }
+    />
+  </div>
+)
+}
+
+// components/navigation.tsx
+import React from "react"
+import { Shield } from "react-feather"
+
+export default function Navigation() {
+return (
+  <nav>
+    <div>
+      <Shield className="w-8 h-8 text-black" aria-hidden="true" />
+      <span className="sr-only">Global Shield Protection</span>
+    </div>
+    <button aria-label="Toggle navigation" aria-expanded="false">
+      <Shield className="w-8 h-8 text-black" aria-hidden="true" />
+    </button>
+  </nav>
+)
+}

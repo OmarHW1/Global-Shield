@@ -1,0 +1,251 @@
+// components/hero-right-modules.tsx
+"use client"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Textarea } from "@/components/ui/textarea"
+import { CheckCircle, AlertCircle } from "lucide-react"
+
+export type HeroModuleType = "none" | "mini-request"
+
+export function HeroRightModule({ type = "none" }: { type?: HeroModuleType }) {
+  if (type === "mini-request") return <MiniRequestForm />
+  return null
+}
+
+function MiniRequestForm() {
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    urgency: "",
+    serviceType: "",
+    additionalInfo: ""
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleChange = (field: string, value: string) => {
+    setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...formData,
+          formType: "hero"
+        }),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        setSubmitStatus('success');
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          urgency: "",
+          serviceType: "",
+          additionalInfo: ""
+        });
+      } else {
+        setSubmitStatus('error');
+        console.error('Error:', data.error);
+      }
+    } catch (err) {
+      setSubmitStatus('error');
+      console.error('Network error:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <Card className="bg-white/10 backdrop-blur-sm border border-white/20">
+      <CardContent className="p-6">
+        <h4 className="text-white font-semibold mb-1">Request a Consultation</h4>
+        <p className="text-gray-300 text-sm mb-4">Confidential. Discreet. Response within 2 hours.</p>
+
+        {submitStatus === 'success' ? (
+          <div className="flex items-start gap-3 rounded-md border border-white/20 bg-white/10 p-3 text-white">
+            <CheckCircle className="w-5 h-5 text-green-400 mt-0.5" />
+            <div>
+              <p className="text-sm font-medium">Consultation request sent!</p>
+              <p className="text-xs text-gray-300 mt-1">We'll contact you within 2 hours.</p>
+            </div>
+          </div>
+        ) : (
+          <>
+            {submitStatus === 'error' && (
+              <div className="flex items-start gap-3 rounded-md border border-red-300/20 bg-red-500/10 p-3 text-white mb-4">
+                <AlertCircle className="w-5 h-5 text-red-400 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium">Failed to send request</p>
+                  <p className="text-xs text-gray-300 mt-1">Please try again or call: +44 (0) 7497 580 732</p>
+                </div>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <Label htmlFor="fullName" className="text-white">
+                    Full Name *
+                  </Label>
+                  <Input
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={(e) => handleChange("fullName", e.target.value)}
+                    placeholder="Jane Doe"
+                    required
+                    className="mt-1 bg-black/30 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="email" className="text-white">
+                    Email *
+                  </Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    placeholder="jane@example.com"
+                    required
+                    className="mt-1 bg-black/30 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <Label htmlFor="phone" className="text-white">
+                    Phone
+                  </Label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => handleChange("phone", e.target.value)}
+                    placeholder="+44 ..."
+                    className="mt-1 bg-black/30 border-white/20 text-white placeholder:text-gray-400"
+                  />
+                </div>
+
+                <div>
+                  <Label className="text-white">Urgency</Label>
+                  <Select value={formData.urgency} onValueChange={(value) => handleChange("urgency", value)}>
+                    <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
+                      <SelectValue placeholder="Select urgency" />
+                    </SelectTrigger>
+                    <SelectContent
+                      sideOffset={4}
+                      className="bg-white text-black border border-gray-200 shadow-lg"
+                    >
+                      <SelectItem value="immediate">Immediate (24h)</SelectItem>
+                      <SelectItem value="urgent">Urgent (1 week)</SelectItem>
+                      <SelectItem value="standard">Standard (2 weeks)</SelectItem>
+                      <SelectItem value="planning">Planning (1+ month)</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="sm:col-span-2">
+                  <Label className="text-white">Service Type</Label>
+                  <Select value={formData.serviceType} onValueChange={(value) => handleChange("serviceType", value)}>
+                    <SelectTrigger className="mt-1 bg-black/30 text-white border-white/20 backdrop-blur-sm">
+                      <SelectValue placeholder="Select service" />
+                    </SelectTrigger>
+                    <SelectContent
+                      sideOffset={4}
+                      className="bg-white text-black border border-gray-200 shadow-lg"
+                    >
+                      <SelectItem value="close-protection">Close Protection</SelectItem>
+                      <SelectItem value="residential-security">Residential Security</SelectItem>
+                      <SelectItem value="travel-security">Travel Security</SelectItem>
+                      <SelectItem value="event-security">Event Security</SelectItem>
+                      <SelectItem value="executive-protection">Executive Protection</SelectItem>
+                      <SelectItem value="celebrity-protection">Celebrity Protection</SelectItem>
+                      <SelectItem value="secure-transport">Secure Transport</SelectItem>
+                      <SelectItem value="intelligence-surveillance">
+                        Intelligence &amp; Surveillance
+                      </SelectItem>
+                      <SelectItem value="comprehensive">Comprehensive Package</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="additionalInfo" className="text-white">
+                  Additional Information
+                </Label>
+                <Textarea
+                  id="additionalInfo"
+                  name="additionalInfo"
+                  value={formData.additionalInfo}
+                  onChange={(e) => handleChange("additionalInfo", e.target.value)}
+                  placeholder="Please provide any additional details about your security requirements..."
+                  rows={3}
+                  className="mt-1 bg-black/30 border-white/20 text-white placeholder:text-gray-400 resize-none"
+                />
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-white text-black hover:bg-gray-100 disabled:opacity-50"
+              >
+                {isSubmitting ? "Submitting..." : "Request Consultation"}
+              </Button>
+            </form>
+          </>
+        )}
+
+        {submitStatus !== 'success' && (
+          <>
+            <div className="mt-6 pt-4 border-t border-white/20">
+              <h5 className="text-white font-medium mb-3 text-sm">Secure Communications Available</h5>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between text-xs text-gray-300">
+                  <span>Signal Messenger:</span>
+                  <span className="text-white">{"+44 (0) 7497 580 732"}</span>
+                </div>
+                <div className="flex items-center justify-between text-xs text-gray-300">
+                  <span>WhatsApp Encrypted:</span>
+                  <span className="text-white">+44 (0) 7497 580 732</span>
+                </div>
+              </div>
+              <p className="text-[10px] text-gray-400 mt-2">
+                For highly sensitive matters requiring additional security
+              </p>
+            </div>
+
+            <p className="text-[11px] text-gray-400 mt-2">Encrypted. Confidential. No spam.</p>
+          </>
+        )}
+      </CardContent>
+    </Card>
+  )
+}
